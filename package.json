@@ -1,0 +1,27 @@
+{
+  "name": "ox_game-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "dev:watch": "ts-node-dev --respawn src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomya-n/ox_game-typescript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomya-n/ox_game-typescript/issues"
+  },
+  "homepage": "https://github.com/tomya-n/ox_game-typescript#readme",
+  "dependencies": {
+    "@types/node": "^17.0.8"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8"
+  }
+}
