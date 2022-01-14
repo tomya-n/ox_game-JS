@@ -1,5 +1,9 @@
-function hello(name: string): string{
-  return `Hello, ${name}!`;
-}
+const rl = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-console.log(hello("TypeScript"));
+rl.question("game start!", (answer: string) => {
+  console.log(`Hello, ${answer}!`);
+  rl.close();
+});
