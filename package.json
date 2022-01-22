@@ -17,10 +17,8 @@
     "url": "https://github.com/tomya-n/ox_game-typescript/issues"
   },
   "homepage": "https://github.com/tomya-n/ox_game-typescript#readme",
-  "dependencies": {
-    "@types/node": "^17.0.8"
-  },
   "devDependencies": {
+    "@types/node": "^17.0.8",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8"
   }
