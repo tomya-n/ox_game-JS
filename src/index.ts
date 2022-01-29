@@ -21,7 +21,7 @@ const gameBoard: string[][] = [
 //画面表示
 function renderField(gb: string[][]): string {
   let field = gb
-    .map((a) => `${a}\n`)
+    .map((a) => String(a) + "\n")
     .join("")
     .replaceAll(",", "");
   //最終行の改行を削除
@@ -46,19 +46,8 @@ function init(): void {
 }
 
 //turnCountからどちらのターンなのか判定
-function playTurn(c: number) {
-  switch (c % 2 !== 0) {
-    case true:
-      // console.log(player1);
-      return player1;
-      break;
-    case false:
-      // console.log(player2);
-      return player2;
-      break;
-    default:
-      break;
-  }
+function playTurn(c: number): string {
+  return c % 2 !== 0 ? player1 : player2;
 }
 
 function turn(): void {
