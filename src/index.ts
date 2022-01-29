@@ -21,7 +21,7 @@ const gameBoard: string[][] = [
 //画面表示
 function renderField(gb: string[][]): string {
   let field = gb
-    .map((a) => a,'/n')
+    .map((a) => `${a}\n`)
     .join("")
     .replaceAll(",", "");
   //最終行の改行を削除
@@ -126,34 +126,6 @@ function judge() {
   const nextplayer = playTurn(turnCount);
   console.log(`${nextplayer}のターン`);
 }
-
-// const victoryPattern = [
-//   [gameBoard[0][0],
-//    gameBoard[0][1],
-//    gameBoard[0][2]],
-//   [gameBoard[1][0],
-//    gameBoard[1][1],
-//    gameBoard[1][2]],
-//   [gameBoard[2][0],
-//    gameBoard[2][1],
-//    gameBoard[2][2]],
-//   [gameBoard[0][0],
-//    gameBoard[1][0],
-//    gameBoard[2][0]],
-//   [gameBoard[0][1],
-//    gameBoard[1][1],
-//    gameBoard[2][1]],
-//   [gameBoard[0][2],
-//    gameBoard[1][2],
-//    gameBoard[2][2]],
-//   [gameBoard[0][0],
-//    gameBoard[1][1],
-//    gameBoard[2][2]],
-//   [gameBoard[0][2],
-//    gameBoard[1][1],
-//    gameBoard[2][0]],
-// ]
-
 
 
 //main関数
