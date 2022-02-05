@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "dev:watch": "ts-node-dev --respawn src/index.ts",
+    "dev:watch": "ts-node-dev --respawn src/index.ts & ts-node-dev --respawn src/test.ts",
     "lint": "eslint src/index.ts",
-    "lint:fix": "eslint --fix src/index.ts"
+    "lint:fix": "eslint --fix src/index.ts",
+    "build": "tsc --build"
   },
   "repository": {
     "type": "git",
