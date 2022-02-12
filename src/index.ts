@@ -16,6 +16,17 @@ const GAMEBOARD: string[][] = [
   ["7", "8", "9"]
 ];
 
+const winPattern: number[][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7]
+];
+
 //画面表示
 function renderField(gb: string[][]): string {
   let field = gb
@@ -53,6 +64,7 @@ function turn(): void {
     input_convert(input);
 
     console.log(`${nowPlayer}のターン`);
+    console.log(`ターンカウント${turnCount}`);
     console.log(`選択した番号${input}`);
     console.log("----");
     console.log(renderField(GAMEBOARD));
@@ -62,11 +74,39 @@ function turn(): void {
   // r.close();
 }
 
+function judge() {
+  const nowplayer = playTurn(turnCount);
+  patternCheck(nowplayer); //"o" or "x"
+}
+
+function patternCheck(mark: string): void {
+  const strGAME = String(GAMEBOARD).replaceAll(",", "");
+
+  const result = winPattern.some((element) => {
+    let trueCount = 0;
+    // console.log("element", element); //winP
+    // console.log("strGAME", strGAME);
+    for (let i = 0; i < element.length; i++) {
+      strGAME[element[i] - 1] === mark ? trueCount++ : false;
+    }
+    if (trueCount === 3) {
+      console.log(`${mark}の勝利！`);
+      return true;
+    }
+  });
+  if (result === true) {
+    r.close();
+  } else {
+    turnCount++;
+    const nextplayer = playTurn(turnCount);
+    console.log(`${nextplayer}のターン`);
+  }
+}
+
 //引数valの値によってGAMEBOARDの値を書き換える
 //書き換えるターンの値が必要
 function input_convert(val: string): void {
   const turn = playTurn(turnCount);
-  // console.log(`${turn}のターン`);
 
   switch (val) {
     case "1":
@@ -102,55 +142,11 @@ function input_convert(val: string): void {
   }
 }
 
-// const winPattern: number[][] = [
-//   [1, 2, 3],
-//   [4, 5, 6],
-//   [7, 8, 9],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [3, 6, 9],
-//   [1, 5, 9],
-//   [3, 5, 7]
-// ];
-
-// function patternCheck(mark: string) {
-//   console.log("判定スタート");
-
-//   const strGAME = String(GAMEBOARD).replaceAll(",", "");
-
-//   winPattern.forEach((element) => {
-//     let trueCount = 0;
-//     console.log("element", element); //winP
-//     console.log("strGAME", strGAME);
-//     for (let i = 0; i < element.length; i++) {
-//       console.log(strGAME[element[i] - 1] === mark);
-//       strGAME[element[i] - 1] === mark ? trueCount++ : false;
-//       console.log(trueCount);
-//       trueCount === 3 ? console.log(`${mark}の勝利！`) : false;
-//     }
-//   });
-//   console.log("判定終了");
-// }
-
-// const m = "o";
-
-function judge() {
-  turnCount++;
-  const nextplayer = playTurn(turnCount);
-  // patternCheck("o");
-  console.log(`${nextplayer}のターン`);
-}
-
 function main(): void {
   init();
   turn();
 }
+// r.close();
 
 //main関数
 main();
-
-//やること
-//勝利パターンの入力
-//引き分け判定
-//入力済の箇所は入力できなくする
-//1-9までの数字以外を入力しても反応しないように
