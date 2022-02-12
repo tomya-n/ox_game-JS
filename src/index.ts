@@ -30,7 +30,6 @@ function renderField(gb: string[][]): string {
 function init(): void {
   r.question("Enter key press start!", () => {
     // let turn = playTurn(turnCount);
-
     console.log("----");
     console.log(renderField(GAMEBOARD));
     console.log("----");
@@ -103,25 +102,42 @@ function input_convert(val: string): void {
   }
 }
 
-const winPattern: number[][] = [
-  [[0][0], [0][1], [0][2]],
-  [[1][0], [1][1], [1][2]]
-];
+// const winPattern: number[][] = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [3, 6, 9],
+//   [1, 5, 9],
+//   [3, 5, 7]
+// ];
 
-function patternCheck() {
-  // for (let i = 0; i <= winPattern.length; i++) {
-  //   let isMatch;
-  //   isMatch = String(winPattern[i]) === String(GAMEBOARD[0]) ? true : false;
-  //   console.log(isMatch);
-  //   return isMatch;
-  // }
-  // console.log(GAMEBOARD[0][0]);
-}
+// function patternCheck(mark: string) {
+//   console.log("判定スタート");
+
+//   const strGAME = String(GAMEBOARD).replaceAll(",", "");
+
+//   winPattern.forEach((element) => {
+//     let trueCount = 0;
+//     console.log("element", element); //winP
+//     console.log("strGAME", strGAME);
+//     for (let i = 0; i < element.length; i++) {
+//       console.log(strGAME[element[i] - 1] === mark);
+//       strGAME[element[i] - 1] === mark ? trueCount++ : false;
+//       console.log(trueCount);
+//       trueCount === 3 ? console.log(`${mark}の勝利！`) : false;
+//     }
+//   });
+//   console.log("判定終了");
+// }
+
+// const m = "o";
 
 function judge() {
   turnCount++;
   const nextplayer = playTurn(turnCount);
-  patternCheck();
+  // patternCheck("o");
   console.log(`${nextplayer}のターン`);
 }
 
