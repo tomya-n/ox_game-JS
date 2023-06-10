@@ -1,0 +1,3 @@
+# ox_game-JS
+
+当初はTypescriptで作ろうかと思いましたが途中で断念してしまいJavascriptになってしまいました。
